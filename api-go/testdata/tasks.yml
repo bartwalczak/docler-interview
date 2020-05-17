@@ -1,0 +1,17 @@
+data:
+  - title: Write documentation
+    description: Our current documentation is not up to date, please remedy that
+    days: 1
+    priority: medium
+  - title: Fix a bug
+    description: The client app has a bug
+    days: 0
+    priority: high
+  - title: Investigate Kubernetes deployment
+    description: We need seamless deployment and redundancy. Kubernetes should take care of it.
+    days: 2
+    priority: low
+  - title: Prepare demo
+    description: Demo session with the development team is tomorrow, you need to be ready
+    days: 0
+    priority: high

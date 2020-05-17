@@ -1,0 +1,15 @@
+# This is the main configuration file in the YAML format. 
+
+# database section
+db:
+  port: 5432
+  host: db
+  name: tasks
+  user: dmc
+  pass: example
+
+# api section
+api:
+  host: localhost
+  port: 8690
+  log-level: 6

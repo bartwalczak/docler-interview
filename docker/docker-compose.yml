@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    ports:
+      - 8686:5432
+    environment:
+      POSTGRES_DB: tasks
+      POSTGRES_USER: dmc
+      POSTGRES_PASSWORD: example
+  api-go:
+    depends_on:
+      - db
+    build:
+      context: ../
+      dockerfile: api-go/Dockerfile
+    ports:
+      - 8690:8690
+    command: bash -c "go run -mod=vendor main.go -sample testdata/tasks.yml"

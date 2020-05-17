@@ -1,0 +1,4 @@
+# where the api is located
+api:
+  host: localhost
+  port: 8690
