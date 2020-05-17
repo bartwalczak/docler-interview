@@ -4,4 +4,4 @@ FROM golang:latest
 
 COPY . /go/src/github.com/bartwalczak/docler-interview/
 
-WORKDIR /go/src/github.com/bartwalczak/docler-interview/api-go
+WORKDIR /go/src/github.com/bartwalczak/docler-interview/server-go

@@ -1,4 +1,4 @@
-# API Go
+# API Server Go
 
 Author: [Bart Walczak](walczak.bart@gmail.com)
 

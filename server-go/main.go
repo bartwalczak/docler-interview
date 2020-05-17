@@ -8,8 +8,8 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/bartwalczak/docler-interview/api-go/models"
-	"github.com/bartwalczak/docler-interview/api-go/server"
+	"github.com/bartwalczak/docler-interview/server-go/models"
+	"github.com/bartwalczak/docler-interview/server-go/server"
 	"github.com/labstack/gommon/log"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"

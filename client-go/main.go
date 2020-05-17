@@ -8,7 +8,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/bartwalczak/docler-interview/api-go/models"
+	"github.com/bartwalczak/docler-interview/server-go/models"
 	"github.com/go-resty/resty/v2"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/viper"

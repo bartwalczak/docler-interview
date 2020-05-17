@@ -3,7 +3,7 @@ package server
 import (
 	"fmt"
 
-	"github.com/bartwalczak/docler-interview/api-go/models"
+	"github.com/bartwalczak/docler-interview/server-go/models"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres" // just import a dialect
 )

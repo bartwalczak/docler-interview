@@ -17,7 +17,16 @@ To run the server, use:
 cd docker && ./run.sh
 ```
 
-To run the client:
+Then you can use a CLI client, a Web UI or access the API directly to view
+and manipulate the tasks.
+
+## Web UI
+
+Go to `localhost:8690` for a rudimentary display of today's tasks.
+
+## CLI Client
+
+To build the client:
 
 ```
 go build -mod=vendor ./client-go -o tasks
@@ -39,6 +48,11 @@ To show tasks lined up for today. Or:
 To list all available tasks.
 
 Additional functionality has not yet been implemented.
+
+## API
+
+Feel free to play with the API using Postman or other tools. Documentation is
+provided as a yaml OpenAPI file in the `doc` folder.
 
 ## Testing
 

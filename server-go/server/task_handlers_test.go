@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bartwalczak/docler-interview/api-go/models"
+	"github.com/bartwalczak/docler-interview/server-go/models"
 	"github.com/gavv/httpexpect"
 )
 

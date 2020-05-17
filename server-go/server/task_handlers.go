@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/bartwalczak/docler-interview/api-go/models"
+	"github.com/bartwalczak/docler-interview/server-go/models"
 	"github.com/labstack/echo/v4"
 	"github.com/sirupsen/logrus"
 )

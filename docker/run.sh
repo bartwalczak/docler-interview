@@ -3,7 +3,7 @@
 # Check if docker is running
 docker_state=$(docker info >/dev/null 2>&1)
 if [[ $? -ne 0 ]]; then
-    echo "Docker not running. "
+    echo "Docker is not running. "
     exit 1
 fi
 
