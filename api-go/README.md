@@ -8,3 +8,7 @@ API needs to be connected to an existing database. It uses Postgres by default.
 Connection options can be found in the configuration file `cfg.yml`
 
 Complete API documentation can be found in the `doc` folder.
+
+## HTML
+
+Static page is served at the root level of the API with a rudimentary UI.

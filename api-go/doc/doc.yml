@@ -1,0 +1,178 @@
+openapi: "3.0.0"
+
+info:
+  title: Task Manager API
+  version: 0.0.1
+  contact:
+    name: Bart Walczak
+    email: walczak.bart@gmail.com
+  description:
+    It's a simple API that allows for task management.
+
+servers:
+  - url: http://localhost:8690
+    description: Local docker API
+
+paths:
+  /check:
+    get:
+      tags: [Monitor]
+      operationId: ServerHealthCheck
+      summary: Check if the server is working
+      responses:
+        '200':
+          description: |-
+            200 response
+  /tasks:
+    get:
+      tags: [Tasks]
+      operationId: TasksList
+      summary: Retrieve all tasks
+      responses:
+        '200':
+          description: A list of tasks in the database
+          content:
+            'application/json':
+              schema:
+                description: A list of existing tasks
+                type: array
+                uniqueItems: true
+                items:
+                  $ref: '#/components/schemas/Task'
+    post:
+      tags: [Tasks]
+      operationId: TaskCreate
+      summary: Create a new task
+      description: Creates a new task
+      requestBody:
+        description: Full task information
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Operation successful
+  /tasks/today:
+    get:
+      tags: [Tasks]
+      operationId: TasksListForToday
+      summary: Retrieve all tasks due today
+      responses:
+        '200':
+          description: A list of tasks in the database
+          content:
+            'application/json':
+              schema:
+                description: A list of existing tasks due today
+                type: array
+                uniqueItems: true
+                items:
+                  $ref: '#/components/schemas/Task'
+  /tasks/day/{date}:
+    get:
+      tags: [Tasks]
+      operationId: TasksListForDate
+      summary: Retrieve all tasks due a given date
+      parameters:
+        - $ref: '#/components/parameters/date'
+      responses:
+        '200':
+          description: A list of tasks in the database
+          content:
+            'application/json':
+              schema:
+                description: A list of existing tasks due a given date
+                type: array
+                uniqueItems: true
+                items:
+                  $ref: '#/components/schemas/Task'
+  /tasks/id/{id}:
+    get:
+      tags: [Tasks]
+      operationId: TaskByID
+      summary: Retrieve details for a particular task
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Task details
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Task'
+    put:
+      tags: [Tasks]
+      operationId: TaskUpdate
+      summary: Update or create.
+      description: Update an existing task or create a new one.
+      parameters:
+        - $ref: '#/components/parameters/id'
+      requestBody:
+        description: Only changed elements for update, whole record for create.
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Item updated. Returns updated item.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Task'
+        '201':
+          description: Item created. Returns item location.
+
+components:
+  parameters:
+    id:
+      required: true
+      description: Item id
+      name: id
+      in: path
+      schema:
+        type: integer
+        example: 14
+    date:
+      required: true
+      description: Due date (Y-M-D format)
+      name: date
+      in: path
+      schema:
+        type: string
+        format: date
+        example: 2020-10-24
+
+  schemas:
+    Task:
+      type: object
+      description: Task item
+      properties:
+        id:
+          description: Unique task id
+          type: integer
+          example: 1
+        title:
+          description: Task title - required
+          type: string
+          example: Update Swagger doc
+        description:
+          description: Longer task description
+          type: string
+          example: Our API documentation is not up to date, and clients need it pretty fast.
+        status:
+          description: Task status
+          type: string
+          example: to do
+        due:
+          description: Due date (Y-M-D format)
+          type: string
+          format: date
+          example: 2020-10-24
+        priority:
+          description: Task priority
+          type: string
+          example: high

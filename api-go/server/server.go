@@ -72,6 +72,10 @@ func (s *Server) Start() error {
 		Format: "${method} ${uri} ${status} latency=${latency_human} req=${bytes_in} resp=${bytes_out}\n",
 	}))
 
+	e.File("/", "assets/html/index.html")
+	e.Static("/js", "assets/js")
+	e.Static("/css", "assets/css")
+
 	// add routes and handlers
 	e.GET("/check", s.healthCheckHandler)
 
