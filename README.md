@@ -1,6 +1,6 @@
-# Docler-interview
+# Task Manager
 
-This repository contains a sample daily task manager API, database and client application.
+This repository contains a sample daily task manager API, database and client application. It's a work in progress.
 
 At present moment all elements are written in `Go` and will work in tandem when docker is installed.
 
